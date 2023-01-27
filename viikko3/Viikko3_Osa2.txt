@@ -1,0 +1,32 @@
+a)
+select * from employees order by last_name asc limit 10;
+
+b)
+select * from employees order by last_name, first_name asc limit 10;
+
+c)
+select * from employees order by hire_date desc limit 5;
+
+d)
+mysql> select first_name, last_name, salaries.salary
+    -> from employees
+    -> inner join salaries on employees.emp_no=salaries.emp_no
+    -> where salaries.salary = (select max(salaries.salary) from salaries)
+    -> ;
+
+e)
+mysql> select first_name, last_name, salaries.salary
+    -> from employees
+    -> inner join salaries on employees.emp_no=salaries.emp_no
+    -> where salaries.salary = (select min(salaries.salary) from salaries)
+    -> ;
+
+f)
+mysql> select first_name, last_name, salaries.salary
+    -> from employees
+    -> inner join salaries on employees.emp_no=salaries.emp_no
+    -> where salaries.salary > 150000
+    -> ;
+
+g)
+
