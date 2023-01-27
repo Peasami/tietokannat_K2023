@@ -1,0 +1,21 @@
+a)
+Customer Service, Development, Finance, Human Resources, Marketing, Production, Quality Managment, Research, Sales
+
+b)
+select distinct title from titles;
+
+c)
+select min(salary), max(salary) from salaries;
+
+d)
+select avg(salary) from salaries;
+
+e)
+select * from employees where last_name = "facello";
+
+f)
+select count(*) from employees where birth_date > '1950-01-01' and birth_date < '1959-12-31';
+
+g)
+select count(*) from employees where gender = 'm';
+select count(*) from employees where gender = 'f';
