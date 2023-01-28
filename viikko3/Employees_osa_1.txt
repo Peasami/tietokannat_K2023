@@ -17,5 +17,4 @@ f)
 select count(*) from employees where birth_date > '1950-01-01' and birth_date < '1959-12-31';
 
 g)
-select count(*) from employees where gender = 'm';
-select count(*) from employees where gender = 'f';
+select gender count(*) as lkm from employees group by gender;
