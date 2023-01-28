@@ -29,4 +29,24 @@ mysql> select first_name, last_name, salaries.salary
     -> ;
 
 g)
+select count(*) from current_dept_emp where dept_no = 'd007';
+select count(*) from current_dept_emp where dept_no = 'd001';
 
+h)
+mysql> select first_name, last_name, departments.dept_name
+    -> from employees
+    -> inner join dept_manager on employees.emp_no=dept_manager.emp_no
+    -> inner join departments on dept_manager.dept_no=departments.dept_no;
+
+i)
+mysql> select avg(salary)
+    -> from salaries
+    -> inner join employees on salaries.emp_no=employees.emp_no
+    -> inner join current_dept_emp on employees.emp_no=current_dept_emp.emp_no
+    -> where current_dept_emp.dept_no = 'd007';
+
+mysql> select avg(salary)
+    -> from salaries
+    -> inner join employees on salaries.emp_no=employees.emp_no
+    -> inner join current_dept_emp on employees.emp_no=current_dept_emp.emp_no
+    -> where current_dept_emp.dept_no = 'd001';
