@@ -1,0 +1,24 @@
+CREATE PROCEDURE `LisaaOpintosuoritus` (eNimi VARCHAR(45), sNimi VARCHAR(45), kKoodi VARCHAR(45), aSana TINYINT)
+Aliohjelma:BEGIN
+	declare opiskelijaID INT DEFAULT 0;
+    declare kurssiID INT DEFAULT 0;
+    
+    SELECT idOpiskelija INTO opiskelijaID FROM Opiskelija WHERE Etunimi=eNimi AND Sukunimi=sNimi;
+    IF opiskelijaID = 0 THEN
+		select 'ERROR: Opiskelijaa ei loytynyt';
+        LEAVE Aliohjelma;
+	END IF;
+    
+    SELECT idOpintojakso INTO kurssiID FROM opintojakso WHERE Koodi=kKoodi;
+    IF kurssiID = 0 THEN
+		select 'ERROR: Opintojaksoa ei loytynyt';
+        LEAVE Aliohjelma;
+	END IF;
+    
+    IF aSana < 0 OR aSana > 5 THEN
+		select 'ERROR: Vaara arvosana-asteikko';
+        LEAVE Aliohjelma;
+	END IF;
+    
+	INSERT INTO arviointi VALUES(NULL, aSana, CURDATE(), opiskelijaID, kurssiID);
+END

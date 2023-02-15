@@ -1,0 +1,69 @@
+mysql> select * from teos;
++--------+-------------------------------------+---------------+
+| idTeos | Nimi                                | ISBN          |
++--------+-------------------------------------+---------------+
+|      1 | The Colour of Magic                 | 9780060855925 |
+|      2 | Guards! Guards!                     | 9780575070714 |
+|      3 | The C++ programming language        | 9780133522839 |
+|      4 | Franklinin jännittävä päivä         | 9789515672445 |
+|      5 | The Dark Tower III: The Waste Lands | 9781501143540 |
+|      6 | The Long Earth                      | 9780062067753 |
+|      7 | Dune Chronicles, Book 1             | 9780441013593 |
++--------+-------------------------------------+---------------+
+
+mysql> select * from tekija;
++----------+----------+------------+
+| idTekija | Etunimi  | Sukunimi   |
++----------+----------+------------+
+|        1 | Terry    | Pratchett  |
+|        2 | Bjarne   | Stroustrup |
+|        3 | Stephen  | King       |
+|        4 | Stephen  | Baxter     |
+|        5 | Paulette | Bourgeois  |
+|        6 | Frank    | Herbert    |
++----------+----------+------------+
+
+mysql> select * from asiakas;
++-----------+---------+-------------+-------------------+---------------+
+| idAsiakas | Etunimi | Sukunimi    | Osoite            | Puhelinnumero |
++-----------+---------+-------------+-------------------+---------------+
+|         1 | Vaku    | Vankka      | Vankkalinna 131   | 013 4130387   |
+|         2 | Matti   | Meikalainen | Perasuo 2         | 013 4826754   |
+|         3 | Ronald  | Rincewind   | Morpork street 32 | 062 4652671   |
++-----------+---------+-------------+-------------------+---------------+
+
+mysql> select * from kirja;
++---------+---------------+--------+
+| idKirja | Luokitus      | idTeos |
++---------+---------------+--------+
+|       1 | Fantasia      |      1 |
+|       2 | Fantasia      |      2 |
+|       3 | Tekniikka     |      3 |
+|       4 | Lasten kirjat |      4 |
+|       5 | Fantasia      |      5 |
+|       6 | Scifi         |      6 |
+|       7 | Tekniikka     |      2 |
++---------+---------------+--------+
+
+mysql> select * from lainaus;
++-----------+------------+-------------+------------+---------+-----------+
+| idLainaus | LainausPVM | PalautusPVM | Palautettu | idKirja | idAsiakas |
++-----------+------------+-------------+------------+---------+-----------+
+|         1 | 2023-02-01 | 2023-02-15  |          1 |       1 |         1 |
+|         2 | 2023-02-08 | 2023-02-22  |          0 |       2 |         2 |
+|         3 | 2023-01-10 | 2023-01-24  |          0 |       3 |         1 |
+|         4 | 2023-01-31 | 2023-02-14  |          1 |       7 |         3 |
++-----------+------------+-------------+------------+---------+-----------+
+
+mysql> select * from tekija_teos;
++----------+--------+
+| idTekija | idTeos |
++----------+--------+
+|        1 |      1 |
+|        1 |      2 |
+|        2 |      3 |
+|        5 |      4 |
+|        3 |      5 |
+|        3 |      6 |
+|        4 |      6 |
++----------+--------+
